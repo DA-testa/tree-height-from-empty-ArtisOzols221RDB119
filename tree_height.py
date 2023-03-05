@@ -32,20 +32,24 @@ def height(n, vec):
 
 def main():
     izvele = input()
-    
-    if izvele == "I":
+
+    if 'I' in izvele:
         n = int(input())
         vec = list(map(int, input().split()))
         print(height(n, vec))
-        
-    elif izvele =="F":
-        filename = ("test/" + input())
+
+    elif 'F' in izvele:
+        filename = input()
+
         if 'a' in filename:
             return
-        with open(filename, mode ='r') as filename:
-            n=int(filename.readline())
-            vec=list(map(int, filename.readline().split()))
+
+        path = "test/" + filename
+        with open(path, mode='r') as f:
+            n = int(f.readline())
+            vec = list(map(int, f.readline().split()))
             print(height(n, vec))
+
 
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
