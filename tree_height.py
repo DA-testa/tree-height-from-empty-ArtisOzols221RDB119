@@ -38,9 +38,8 @@ def main():
         vec = list(map(int, input().split()))
         print(height(n, vec))
         
-    elif izvele == "F":
-        file = input()
-        filename = ("test/" + file)
+    elif 'F' in izvele:
+        filename = ("test/" + input())
         if filename.__contains__('a')==False:
             with open(filename, mode ='r') as filename:
                 return filename.read()
