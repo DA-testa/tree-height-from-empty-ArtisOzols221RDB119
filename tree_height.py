@@ -40,7 +40,7 @@ def main():
         
     if izvele == "F":
         filename = ("test/" + input())
-        if filename.__contains__('A')==False and filename.__contains__('a')==False:
+        if filename.__contains__('a')==False:
             with open(filename, mode ='r') as filename:
                 return filename.read()
 
