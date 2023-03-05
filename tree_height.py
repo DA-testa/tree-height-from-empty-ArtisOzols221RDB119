@@ -2,7 +2,7 @@
 
 import sys
 import threading
-import numpy as np
+import numpy
 
 def height(n, vec):
     max_height = 0
