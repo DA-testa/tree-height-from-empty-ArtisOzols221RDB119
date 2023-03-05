@@ -1,33 +1,49 @@
-# python3
+# 221RDB119 Artis Ozols 12.gr
 
 import sys
 import threading
-import numpy
+import numpy as np
 
-
-def compute_height(n, parents):
-    # Write this function
+def height(n, vec):
     max_height = 0
-    # Your code here
-    return max_height
+    list = []
+    chl = {i:[] for i in range(0, n)}
+    
+    for i, a in enumerate(vec):
+        if a == -1:
+            list.append(i)
+        else:
+            chl[a].append(i)
 
+    def get_dzl(node, dzl): 
+        max_dzl=0  
+        if not chl[node]:
+            return dzl
+        else:
+            for b in chl[node]:
+                chl_dzl = get_dzl(b, dzl+1)
+                max_dzl = max(max_dzl, chl_dzl)
+            return max_dzl
+        
+    for root in list:
+        height = get_dzl(root, 0)
+        max_height = max(max_height, height)
+    return (max_height+1)
 
 def main():
-    # implement input form keyboard and from files
+    izvele = input()
     
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
+    if izvele == "I":
+        n = int(input())
+        vec = list(map(int, input().split()))
+        print(height(n, vec))
+        
+    if izvele == "F":
+        filename = ("test/" + input())
+        if filename.__contains__('A')==False and filename.__contains__('a')==False:
+            with open(filename, mode ='r') as filename:
+                return filename.read()
 
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
+sys.setrecursionlimit(10**7)
+threading.stack_size(2**27)
 threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
