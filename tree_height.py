@@ -33,21 +33,21 @@ def height(n, vec):
 def main():
     izvele = input()
 
-    if 'I' in izvele:
+    if izvele == "I":
         n = int(input())
         vec = list(map(int, input().split()))
         print(height(n, vec))
 
-    elif 'F' in izvele:
+    elif izvele =="F":
         filename = input()
 
         if 'a' in filename:
             return
 
-        path = "test/" + filename
-        with open(path, mode='r') as f:
-            n = int(f.readline())
-            vec = list(map(int, f.readline().split()))
+        filename = "test/" + filename
+        with open(filename, mode='r') as filename:
+            n = int(filename.readline())
+            vec = list(map(int, filename.readline().split()))
             print(height(n, vec))
 
 
