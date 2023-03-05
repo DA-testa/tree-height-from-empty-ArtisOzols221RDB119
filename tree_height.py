@@ -40,9 +40,11 @@ def main():
         
     elif izvele =="F":
         filename = ("test/" + input())
-        if 'a' not in filename:
+        if filename.__contains__('a')==False:
             with open(filename, mode ='r') as filename:
-                return filename.read()
+                n=int(filename.readline())
+                vec=list(map(int, filename.readline().split()))
+                print(height(n, vec))
 
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
