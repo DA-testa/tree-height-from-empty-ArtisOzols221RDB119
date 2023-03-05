@@ -42,7 +42,7 @@ def main():
         filename = "test/" + input()
         if filename.__contains__('a'):
             return
-        with open(filename, mode='r'):
+        with open(filename, mode='r') as filename:
             n = int(filename.readline())
             vec = list(map(int, filename.readline().split()))
             print(height(n, vec))
