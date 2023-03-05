@@ -40,7 +40,7 @@ def main():
 
     elif 'F' in izvele:
         filename = input()
-        if 'a' in filename:
+        if filename.__contains__('a'):
             return
         filename = "test/" + filename
         with open(filename, mode='r') as filename:
