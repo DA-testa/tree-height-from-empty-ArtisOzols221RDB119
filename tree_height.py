@@ -39,10 +39,10 @@ def main():
         print(height(n, vec))
         
     if izvele =="F":
-        filename = ("test/" + input())
-        if filename().__contains__('a')==False:
-            with open(filename, mode ='r') as filename:
-                return filename.read()
+        file = ("test/" + input())
+        if file.__contains__('a')==False:
+            with open(file, mode ='r') as file:
+                return file.read()
 
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
